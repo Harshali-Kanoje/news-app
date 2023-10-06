@@ -1,33 +1,42 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './Home.css'
+import NewsArticle from '../../component/NewsArticle/NewsArticle';
 
 const Home = () => {
 
     const [news , setNews] = useState([]);
-     
-    const loadNews = async () => {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=chatgpt&from=2023-10-05&to=2023-10-05&sortBy=popularity&apiKey=38e30714bb0441c6bba633fd737cb88c`)
-      setNews(response.data.articles);
-    }
+    const [searchnews , setSearchnews] = useState('pune');
+    
+        const loadNews = async () => {
+            try{
+            const response = await axios.get(`https://newsapi.org/v2/everything?q=${searchnews}&from=2023-10-05&to=2023-10-05&sortBy=popularity&apiKey=${process.env.REACT_APP_API_KEY}`)
+            setNews(response.data.articles);
+            }
+            catch(e) {
+            console.log(e)
+            }
+        }
+       
 
     useEffect(() => {
         loadNews()
     },[])
 
+    useEffect(() => {
+        loadNews()
+    },[searchnews])
+
   return (
     <div>
+        <input type='text' value={searchnews} onChange={(e) => {
+            setSearchnews(e.target.value)
+        }}/>
       {
         news.map((newsdata , index) => {
             const {title , description , urlToImage ,publishedAt , url} = newsdata;
             return(
-                <div key={index}>
-                    <div className='newsdetails' >
-                    <img src={urlToImage}/>
-                   <p>{title}</p>
-                    </div>
-                 
-                </div>
+               <NewsArticle title={title} description={description} url={url} urlToImage={urlToImage} publishedAt={publishedAt} index={index}/>
             )
             
         })
