@@ -1,8 +1,37 @@
 .newsdetails{
     padding: 10px;
     box-shadow: 0 0 1px 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 rgb(217, 204, 204);
+    width: 400px;
+    margin: 10px auto;
 }
 
 .newsdetails img{
-    height: 200px;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.article-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsdetails a{
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+   display: block;
+   text-align: center;
+   width: 100px;
+   margin: 10px auto;
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.newsdetails span{
+    font-weight: bold;
 }
