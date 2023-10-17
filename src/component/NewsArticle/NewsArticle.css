@@ -2,7 +2,7 @@
     padding: 10px;
     box-shadow: 0 0 1px 2px;
     border-radius: 10px;
-    box-shadow: 0 0 12px 0 rgb(217, 204, 204);
+    box-shadow: 0 0 12px 0 rgb(192, 182, 182);
     width: 400px;
     margin: 10px auto;
 }
@@ -34,4 +34,18 @@
 
 .newsdetails span{
     font-weight: bold;
+}
+
+@media screen and (max-width:600px) {
+    .newsdetails img{
+        height: 200px;
+    }
+
+    .newsdetails{
+        width: 280px;
+    }
+
+    .newsdetails h1{
+        font-size: 23px;
+    }
 }

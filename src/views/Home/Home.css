@@ -32,3 +32,18 @@ body{
 .text-center{
     text-align: center;
 }
+
+@media screen and (max-width:600px) {
+    .news-head input{
+        width: 300px;
+    }
+
+    .news-head{
+        flex-direction: column;
+        padding: 10px ;
+    }
+
+    .text-center{
+        font-size: 20px;
+    }
+}
